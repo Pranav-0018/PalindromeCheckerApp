@@ -5,8 +5,7 @@
      * PalindromeCheckerApp
      * Starting The System and Initialize the System
      */
-   import java.util.Scanner;
-   import java.util.Stack;
+   import java.util.*;
 
 public class PalindromeCheckerAPP{
         public static void main(String[] args){
@@ -14,34 +13,44 @@ public class PalindromeCheckerAPP{
             System.out.println("Version : 1.0");
             System.out.println("System Initialized Successfully.");
 
-            // Declare and initialize input string
-            String input = "noon";
 
-            // Create stack
-            Stack<Character> stack = new Stack<>();
+                    Scanner sc = new Scanner(System.in);
 
-            // Push each character into stack
-            for (char c : input.toCharArray()) {
-                stack.push(c);
-            }
+                    System.out.print("Enter a string: ");
+                    String input = sc.nextLine();
 
-            // Assume palindrome initially
-            boolean isPalindrome = true;
+                    // Convert to lowercase and remove spaces for better checking
+                    String str = input.replaceAll("\\s+", "").toLowerCase();
 
-            // Compare original string with stack pop
-            for (char c : input.toCharArray()) {
-                if (c != stack.pop()) {
-                    isPalindrome = false;
-                    break;
+                    // Create Queue and Stack
+                    Queue<Character> queue = new LinkedList<>();
+                    Stack<Character> stack = new Stack<>();
+
+                    // Step 1 & 2: Enqueue and Push characters
+                    for (int i = 0; i < str.length(); i++) {
+                        queue.add(str.charAt(i));   // enqueue
+                        stack.push(str.charAt(i));  // push
+                    }
+
+                    // Step 3: Compare dequeue vs pop
+                    boolean isPalindrome = true;
+
+                    while (!queue.isEmpty()) {
+                        if (!queue.remove().equals(stack.pop())) {
+                            isPalindrome = false;
+                            break;
+                        }
+                    }
+
+                    // Result
+                    if (isPalindrome)
+                        System.out.println("Palindrome");
+                    else
+                        System.out.println("Not a Palindrome");
+
+                    sc.close();
                 }
             }
 
-            // Print result
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome? : " + isPalindrome);
 
-
-
-        }
-    }
 
