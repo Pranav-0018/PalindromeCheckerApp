@@ -1,43 +1,46 @@
 /*
-     * @Author Pranav
-     * @version 1.0
-     *  Use Case 1 :
-     * PalindromeCheckerApp
-     * Starting The System and Initialize the System
-     */
-   import java.util.*;
+ * @Author Pranav
+ * @version 1.0
+ *  Use Case 1 :
+ * PalindromeCheckerApp
+ * Starting The System and Initialize the System
+ */
+import java.util.Scanner;
+import java.util.Stack;
 
 public class PalindromeCheckerAPP{
-        public static void main(String[] args){
-            System.out.println("Welcome to Palindrome Checker Mangement System");
-            System.out.println("Version : 1.0");
-            System.out.println("System Initialized Successfully.");
-            String input = "refer";
+    public static void main(String[] args){
+        System.out.println("Welcome to Palindrome Checker Mangement System");
+        System.out.println("Version : 1.0");
+        System.out.println("System Initialized Successfully.");
 
-            Deque<Character> deque = new ArrayDeque<>();
+        // Declare and initialize input string
+        String input = "noon";
 
-            for (char c : input.toCharArray()) {
-                deque.addLast(c);
+        // Create stack
+        Stack<Character> stack = new Stack<>();
+
+        // Push each character into stack
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
+
+        // Assume palindrome initially
+        boolean isPalindrome = true;
+
+        // Compare original string with stack pop
+        for (char c : input.toCharArray()) {
+            if (c != stack.pop()) {
+                isPalindrome = false;
+                break;
             }
+        }
 
-            boolean isPalindrome = true;
-
-            while (deque.size() > 1) {
-                char first = deque.removeFirst();
-                char last = deque.removeLast();
-                if (first != last) {
-                    isPalindrome = false;
-                    break;
-                }
-            }
-
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome? : " + isPalindrome);
+        // Print result
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
 
 
 
-                }
-            }
-
-
-
+    }
+}
