@@ -10,20 +10,20 @@
             System.out.println("Welcome to Palindrome Checker Mangement System");
             System.out.println("Version : 1.0");
             System.out.println("System Initialized Successfully.");
-            String str = "madam";
+            String input = "madam";
+            boolean isPalindrome = true;
 
-            // Reverse string
-            String rev = "";
-            for (int i = str.length() - 1; i >= 0; i--) {
-                rev = rev + str.charAt(i);
+            // Loop till half of string
+            for (int i = 0; i < input.length() / 2; i++) {
+                if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+                    isPalindrome = false;
+                    break;
+                }
             }
 
-            // Check palindrome
-            if (str.equals(rev)) {
-                System.out.println(str + " is a Palindrome");
-            } else {
-                System.out.println(str + " is not a Palindrome");
-            }
+            System.out.println("Input text: " + input);
+            System.out.println("Is it a Palindrome?: " + isPalindrome);
         }
     }
+
 
