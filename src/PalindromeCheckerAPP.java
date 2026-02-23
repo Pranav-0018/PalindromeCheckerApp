@@ -10,6 +10,7 @@
             System.out.println("Welcome to Palindrome Checker Mangement System");
             System.out.println("Version : 1.0");
             System.out.println("System Initialized Successfully.");
+            // Hardcoded string
             String str = "madam";
 
             // Reverse string
