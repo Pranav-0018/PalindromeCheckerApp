@@ -7,7 +7,7 @@ public class PalindromeCheckerAPP{
         String reversed = new StringBuilder(input).reverse().toString();
         return input.equals(reversed);
     }
-
+    //hi
     // Stack Method
     public static boolean stackMethod(String input) {
         Stack<Character> stack = new Stack<>();
